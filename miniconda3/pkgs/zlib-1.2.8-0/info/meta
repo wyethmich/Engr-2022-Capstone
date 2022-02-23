@@ -1,0 +1,7 @@
+pkg: zlib-1.2.8
+dist: zlib-1.2.8-0
+home: http://zlib.net/
+license: zlib (http://zlib.net/zlib_license.html)
+has_bin: False
+has_lib: True
+has_py: False

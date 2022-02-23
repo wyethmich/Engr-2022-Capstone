@@ -1,0 +1,29 @@
+{
+  "arch": "armv7l",
+  "build": "1",
+  "build_number": 1,
+  "depends": [],
+  "files": [
+    "bin/sqlite3",
+    "include/sqlite3.h",
+    "include/sqlite3ext.h",
+    "lib/libsqlite3.a",
+    "lib/libsqlite3.la",
+    "lib/libsqlite3.so",
+    "lib/libsqlite3.so.0",
+    "lib/libsqlite3.so.0.8.6",
+    "lib/pkgconfig/sqlite3.pc"
+  ],
+  "license": "Public-Domain (http://www.sqlite.org/copyright.html)",
+  "license_family": "Public-Domain",
+  "link": {
+    "source": "/home/pi/miniconda3/pkgs/sqlite-3.8.4.1-1",
+    "type": "hard-link"
+  },
+  "name": "sqlite",
+  "platform": "linux",
+  "requires": [],
+  "subdir": "linux-armv7l",
+  "url": null,
+  "version": "3.8.4.1"
+}

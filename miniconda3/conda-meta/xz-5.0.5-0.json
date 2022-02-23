@@ -1,0 +1,41 @@
+{
+  "arch": "armv7l",
+  "build": "0",
+  "build_number": 0,
+  "depends": [],
+  "files": [
+    "include/lzma.h",
+    "include/lzma/base.h",
+    "include/lzma/bcj.h",
+    "include/lzma/block.h",
+    "include/lzma/check.h",
+    "include/lzma/container.h",
+    "include/lzma/delta.h",
+    "include/lzma/filter.h",
+    "include/lzma/hardware.h",
+    "include/lzma/index.h",
+    "include/lzma/index_hash.h",
+    "include/lzma/lzma.h",
+    "include/lzma/stream_flags.h",
+    "include/lzma/version.h",
+    "include/lzma/vli.h",
+    "lib/liblzma.a",
+    "lib/liblzma.la",
+    "lib/liblzma.so",
+    "lib/liblzma.so.5",
+    "lib/liblzma.so.5.0.5",
+    "lib/pkgconfig/liblzma.pc"
+  ],
+  "license": "Public-Domain, GPL",
+  "license_family": "Public-Domain",
+  "link": {
+    "source": "/home/pi/miniconda3/pkgs/xz-5.0.5-0",
+    "type": "hard-link"
+  },
+  "name": "xz",
+  "platform": "linux",
+  "requires": [],
+  "subdir": "linux-armv7l",
+  "url": null,
+  "version": "5.0.5"
+}

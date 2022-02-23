@@ -1,0 +1,16 @@
+{
+  "arch": "armv7l", 
+  "build": "py34_0", 
+  "build_number": 0, 
+  "depends": [
+    "python 3.4*"
+  ], 
+  "license": "Public-Domain", 
+  "name": "pycrypto", 
+  "platform": "linux", 
+  "requires": [
+    "python 3.4"
+  ], 
+  "subdir": "linux-armv7l", 
+  "version": "2.6.1"
+}

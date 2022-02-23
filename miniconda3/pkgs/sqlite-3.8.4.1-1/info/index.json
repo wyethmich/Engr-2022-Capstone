@@ -1,0 +1,13 @@
+{
+  "arch": "armv7l", 
+  "build": "1", 
+  "build_number": 1, 
+  "depends": [], 
+  "license": "Public-Domain (http://www.sqlite.org/copyright.html)", 
+  "license_family": "Public-Domain", 
+  "name": "sqlite", 
+  "platform": "linux", 
+  "requires": [], 
+  "subdir": "linux-armv7l", 
+  "version": "3.8.4.1"
+}

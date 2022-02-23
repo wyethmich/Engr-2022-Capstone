@@ -1,0 +1,12 @@
+{
+  "arch": "armv7l", 
+  "build": "0", 
+  "build_number": 0, 
+  "depends": [], 
+  "license": "MIT", 
+  "name": "yaml", 
+  "platform": "linux", 
+  "requires": [], 
+  "subdir": "linux-armv7l", 
+  "version": "0.1.6"
+}

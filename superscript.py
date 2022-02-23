@@ -33,7 +33,7 @@ sock = socket.socket(socket.AF_INET,socket.SOCK_DGRAM) # UDP
 sock.settimeout(1)
 
 # 129 86 model
-model = r'//home/pi/svmthings/trained_models/0.91_129_86_svc.joblib'
+model = r'//home/pi/Engr-2022-Capstone/svmthings/trained_models/0.91_129_86_svc.joblib'
 cl = load(model) 
 BUTTON = 17
 
@@ -51,7 +51,7 @@ swidth = 2
 
 TIMEOUT_LENGTH = 2
 
-f_name_directory = r'//home/pi/audioconfig/audiotests/live_demo'
+f_name_directory = r'//home/pi/Engr-2022-Capstone/audioconfig/audiotests/live_demo'
 
 i2c = board.I2C()
 light=adafruit_tsl2591.TSL2591(i2c)

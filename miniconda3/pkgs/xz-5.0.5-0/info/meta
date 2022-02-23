@@ -1,0 +1,7 @@
+pkg: xz-5.0.5
+dist: xz-5.0.5-0
+home: http://tukaani.org/xz/
+license: Public-Domain, GPL
+has_bin: False
+has_lib: True
+has_py: False

@@ -1,0 +1,24 @@
+{
+  "arch": "armv7l", 
+  "build": "py34_0", 
+  "build_number": 0, 
+  "depends": [
+    "conda-env", 
+    "pycosat", 
+    "python 3.4*", 
+    "pyyaml", 
+    "requests"
+  ], 
+  "license": "BSD", 
+  "name": "conda", 
+  "platform": "linux", 
+  "requires": [
+    "conda-env 2.4.2", 
+    "pycosat 0.6.1", 
+    "python 3.4", 
+    "pyyaml 3.11", 
+    "requests 2.7.0"
+  ], 
+  "subdir": "linux-armv7l", 
+  "version": "3.16.0"
+}

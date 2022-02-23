@@ -1,0 +1,22 @@
+{
+  "arch": "armv7l", 
+  "build": "1", 
+  "build_number": 1, 
+  "depends": [
+    "openssl 1.0.1*", 
+    "sqlite", 
+    "xz 5.0.5", 
+    "zlib 1.2*"
+  ], 
+  "license": "PSF", 
+  "name": "python", 
+  "platform": "linux", 
+  "requires": [
+    "openssl 1.0.1k", 
+    "sqlite 3.8.4.1", 
+    "xz 5.0.5", 
+    "zlib 1.2.8"
+  ], 
+  "subdir": "linux-armv7l", 
+  "version": "3.4.3"
+}

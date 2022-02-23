@@ -1,0 +1,26 @@
+{
+  "arch": "armv7l",
+  "build": "0",
+  "build_number": 0,
+  "depends": [],
+  "files": [
+    "include/yaml.h",
+    "lib/libyaml-0.so.2",
+    "lib/libyaml-0.so.2.0.4",
+    "lib/libyaml.a",
+    "lib/libyaml.la",
+    "lib/libyaml.so",
+    "lib/pkgconfig/yaml-0.1.pc"
+  ],
+  "license": "MIT",
+  "link": {
+    "source": "/home/pi/miniconda3/pkgs/yaml-0.1.6-0",
+    "type": "hard-link"
+  },
+  "name": "yaml",
+  "platform": "linux",
+  "requires": [],
+  "subdir": "linux-armv7l",
+  "url": null,
+  "version": "0.1.6"
+}

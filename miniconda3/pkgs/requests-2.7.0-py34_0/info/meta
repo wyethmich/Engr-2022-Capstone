@@ -1,0 +1,7 @@
+pkg: requests-2.7.0
+dist: requests-2.7.0-py34_0
+home: http://docs.python-requests.org/en/latest/index.html
+license: Apache
+has_bin: False
+has_lib: False
+has_py: True

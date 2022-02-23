@@ -1,0 +1,13 @@
+{
+  "arch": "armv7l", 
+  "build": "1", 
+  "build_number": 1, 
+  "depends": [], 
+  "license": "Apache-style (http://www.openssl.org/source/license.html)", 
+  "license_family": "Apache", 
+  "name": "openssl", 
+  "platform": "linux", 
+  "requires": [], 
+  "subdir": "linux-armv7l", 
+  "version": "1.0.1k"
+}
