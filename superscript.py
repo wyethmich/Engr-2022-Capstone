@@ -24,7 +24,7 @@ import collections
 
 
 #time.sleep(60)  
-UDP_IP = "140.182.152.68"
+UDP_IP = "140.182.152.76"
 
 UDP_PORT = 5005
 
@@ -40,7 +40,8 @@ BUTTON = 17
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(BUTTON, GPIO.IN)
 
-Threshold = 150
+Threshold = 220
+#was 150
 
 SHORT_NORMALIZE = (1.0/32768.0)
 chunk = 1024
@@ -49,6 +50,10 @@ CHANNELS = 1
 RATE = 16000
 swidth = 2
 
+BUF_LEN = 10
+BUF_LEN *= 10
+STD_COEF = 2.3
+#was 2.5 
 TIMEOUT_LENGTH = 2
 
 f_name_directory = r'//home/pi/Engr-2022-Capstone/audioconfig/audiotests/live_demo'
@@ -57,10 +62,15 @@ i2c = board.I2C()
 light=adafruit_tsl2591.TSL2591(i2c)
 mpu = adafruit_mpu6050.MPU6050(i2c)
 
-mpu_buf = collections.deque(maxlen=36000)
-mpu_buf.append(np.sqrt((mpu.acceleration[0] ** 2) + (mpu.acceleration[1] ** 2) + (mpu.acceleration[2] ** 2)))
+buf = collections.deque(maxlen=BUF_LEN)
+buf.append(mean(mpu.acceleration))
 time.sleep(0.1)
-mpu_buf.append(np.sqrt((mpu.acceleration[0] ** 2) + (mpu.acceleration[1] ** 2) + (mpu.acceleration[2] ** 2)))
+buf.append(mean(mpu.acceleration))
+
+for i in range(BUF_LEN):
+        buf.append(np.sqrt((mpu.acceleration[0] ** 2) + (mpu.acceleration[1] ** 2) + (mpu.acceleration[2] ** 2)))
+        time.sleep(0.1)
+
 
 class Recorder:
 
@@ -137,7 +147,7 @@ class Recorder:
 
             data = self.stream.read(chunk)
             if self.rms(data) >= Threshold: end = time.time() + TIMEOUT_LENGTH
-
+#Maybe include a kill time length so it doesn't run indefinitely
             current = time.time()
             rec.append(data)
         self.write(b''.join(rec))
@@ -184,8 +194,10 @@ class Recorder:
             print("Not a bird!")
             print("No data recorded")
             self.print_bird(0)
-            os.remove(filename)
-    
+            try:
+                os.remove(filename)
+            except OSError:
+                pass
         print('Returning to listening')
     
 
@@ -197,14 +209,25 @@ class Recorder:
             state = GPIO.input(BUTTON)
             input = self.stream.read(chunk,exception_on_overflow = False)
             rms_val = self.rms(input)
+            print(rms_val, Threshold)
 
-            mag = np.sqrt((mpu.acceleration[0] ** 2) + (mpu.acceleration[1] ** 2) + (mpu.acceleration[2] ** 2))
-            #print(str(mean(mpu_buf) - mag) + " " + str(stdev(mpu_buf) * 2))
-            if rms_val > Threshold:
-                if (mean(mpu_buf) - mag) > stdev(mpu_buf) * 2:
-                    self.record()
+            magnitude = np.sqrt((mpu.acceleration[0] ** 2) + (mpu.acceleration[1] ** 2) + (mpu.acceleration[2] ** 2))
+     
+            if abs(mean(buf) - magnitude) > (STD_COEF * stdev(buf))and (rms_val>Threshold):
+                self.record()
+
+            elif abs(mean(buf) - magnitude) > (STD_COEF * stdev(buf))and (not(rms_val>Threshold)):  
+                print("Just accel trigger")
+
+            elif (rms_val>Threshold) and not (abs(mean(buf) - magnitude) > (STD_COEF * stdev(buf))):
+                print("just mic trigger")
+                buf.append(magnitude)
+            else:
+                #print("No trigger")
+                buf.append(magnitude)
+
             if not state:
                 quit()
 a = Recorder()
-
+    
 a.listen()
